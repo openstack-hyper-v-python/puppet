@@ -16,5 +16,7 @@ node /buildserver.*/ {
     class {'windows_openssl': 
         $openssl_path => 'C:\\pkg',
     }
+    class {'mysql_windows':}
+    class {'mysql_connector_c_windows':}
     
 }
