@@ -1,5 +1,6 @@
 node /buildserver.*/ {
 
+    # install jenkins with plugins and jenkins-job-builder
     include jenkins
     jenkins::plugin {
         'git':  ;
@@ -8,7 +9,19 @@ node /buildserver.*/ {
         'github':   ;
     }
     class {'jenkins_job_builder:'}
-    class {'mingw:'}
+    
+    # install mingw and some extra packages
+    include mingw
+    mingw::dependency { 'mingw32-gendef':
+        remote_url => undef,
+        source     => undef,
+        version    => undef,
+    }
+    mingw::dependency { 'mingw32-pthreads-w32':
+        remote_url => undef,
+        source     => undef,
+        version    => undef,
+    }
     
     # temporary solution to force posix_ipc to be built with mingw headers and not python-dev headers
     file_line { 'quoted-include':
