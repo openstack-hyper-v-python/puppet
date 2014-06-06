@@ -18,5 +18,6 @@ node /buildserver.*/ {
     }
     class {'mysql_windows':}
     class {'mysql_connector_c_windows':}
+    class {'svn_windows':}
     
 }
