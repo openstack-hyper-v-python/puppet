@@ -8,7 +8,7 @@ node /buildserver.*/ {
         'github-api':   ;
         'github':   ;
     }
-    class {'jenkins_job_builder:'}
+    class {'jenkins_job_builder':}
     
     # install mingw and some extra packages
     include mingw
@@ -32,8 +32,8 @@ node /buildserver.*/ {
     }
     
     class {'windows_git':}
-    class {'visualcplusplus2008:'}
-    class {'swig:'}
+    class {'visualcplusplus2008':}
+    class {'swig':}
     class {'nasm':}
     class {'windows_openssl': 
         $openssl_path => 'C:\\pkg',
